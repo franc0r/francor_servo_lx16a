@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <servo_config>
-
   <servo>
-    <id>1</id>
-    <name>pan</name>
-    <base_frame>map</base_frame>
-    <max_v_in>12</max_v_in>
-    <min_v_in>4.5</min_v_in>
-    <max_temp>85</max_temp>
-    <angle_max>2.0944</angle_max> <!-- todo-->
-    <angle_min> -2.0944</angle_min>
-    <mode>0</mode>  <!-- 0: Servo, 1: Motor -->
+  <id>1</id>
+  <name>sensor_head_yaw</name>
+  <base_frame>sensor_head_yaw_base</base_frame>
+  <max_v_in>12</max_v_in>
+  <min_v_in>4.5</min_v_in>
+  <max_temp>85</max_temp>
+  <angle_max>2.0944</angle_max>
+  <!--  todo -->
+  <angle_min> -2.0944</angle_min>
+  <mode>0</mode>
+  <!--  0: Servo, 1: Motor  -->
   </servo>
-  
   <servo>
-    <id>2</id>
-    <name>tilt</name>
-    <base_frame>map</base_frame>
-    <max_v_in>12</max_v_in>
-    <min_v_in>4.5</min_v_in>
-    <max_temp>85</max_temp>
-    <angle_max>1.4</angle_max> <!-- todo-->
-    <angle_min> -2.0944</angle_min>
-    <mode>0</mode>  <!-- 0: Servo, 1: Motor -->
+  <id>2</id>
+  <name>sensor_head_pitch</name>
+  <base_frame>sensor_head_pitch_base</base_frame>
+  <max_v_in>12</max_v_in>
+  <min_v_in>4.5</min_v_in>
+  <max_temp>85</max_temp>
+  <angle_max>1.4</angle_max>
+  <!--  todo -->
+  <angle_min> -2.0944</angle_min>
+  <mode>0</mode>
+  <!--  0: Servo, 1: Motor  -->
   </servo>
-
-</servo_config> 
+  </servo_config>

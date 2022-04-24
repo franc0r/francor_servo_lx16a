@@ -56,8 +56,8 @@ install(TARGETS francor_servo_lx16a_node francor_servo_lx16a_joy_test_node
 #   DESTINATION share/${PROJECT_NAME}
 #   FILES_MATCHING PATTERN "*.png" PATTERN "*.svg")
 
-# install(DIRECTORY launch
-#   DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY launch param config
+  DESTINATION share/${PROJECT_NAME})
 
 
 ament_package()

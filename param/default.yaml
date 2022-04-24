@@ -1,0 +1,10 @@
+/francor_servo_lx16a_node:
+  ros__parameters:
+    rate_error_req: 0.5
+    rate_pos_req: 15.0
+    rate_speed_req: 0.1
+    rate_temp_req: 0.5
+    rate_vin_req: 0.5
+    serial_device: /dev/ttyUSB0
+    servo_xml_cfg: /home/m1ch1/workspace/ros2/dev_ws/src/francor_servo_lx16a/config/servo_default.xml
+    use_sim_time: false

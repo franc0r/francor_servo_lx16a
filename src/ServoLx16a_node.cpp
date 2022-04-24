@@ -42,6 +42,20 @@ ServoLx16a_node::ServoLx16a_node() : rclcpp::Node("francor_servo_lx16a_node"),
   this->declare_parameter<double>( "rate_vin_req", 0.5);
   rate_vin_req = this->get_parameter("rate_vin_req").as_double();
   
+
+  RCLCPP_INFO(this->get_logger(), "############################################################");
+  RCLCPP_INFO(this->get_logger(), "## francor_servo_lx16a_node - Params ##");
+  RCLCPP_INFO(this->get_logger(), "############################################################");
+  RCLCPP_INFO(this->get_logger(), "francor_servo_lx16a_node - servo_xml_cfg:  %s", servo_xml_cfg.c_str());
+  RCLCPP_INFO(this->get_logger(), "francor_servo_lx16a_node - serial_device:  %s", serial_device.c_str());
+  RCLCPP_INFO(this->get_logger(), "francor_servo_lx16a_node - rate_pos_req:   %f", rate_pos_req);
+  RCLCPP_INFO(this->get_logger(), "francor_servo_lx16a_node - rate_speed_req: %f", rate_speed_req);
+  RCLCPP_INFO(this->get_logger(), "francor_servo_lx16a_node - rate_error_req: %f", rate_error_req);
+  RCLCPP_INFO(this->get_logger(), "francor_servo_lx16a_node - rate_temp_req:  %f", rate_temp_req);
+  RCLCPP_INFO(this->get_logger(), "francor_servo_lx16a_node - rate_vin_req:   %f", rate_vin_req);
+  RCLCPP_INFO(this->get_logger(), "############################################################");
+
+  std::cout << "hans" << std::endl;
   
   // privNh.param<int>(    "int_val"    ,    int_val   ,   1.0);
   // privNh.param<bool>(   "bool_val"   ,    bool_val  ,   true);
@@ -102,6 +116,7 @@ void ServoLx16a_node::loop_callback()
 
 void ServoLx16a_node::servo_status_update_callback(const uint8_t id, const francor::servo::Status_Lx16a& status) 
 {
+  // RCLCPP_INFO(this->get_logger(), "servo_status_update_callback: id: %d", id);
   //pub status
   _pubs_servo_status.at(id)->publish(this->servo_status_to_ros_status(id, status));
 

@@ -5,6 +5,7 @@
 #include <francor_msgs/msg/detail/servo_lx16a__struct.hpp>
 #include <iostream>
 #include <memory>
+#include <rclcpp/logging.hpp>
 #include <rclcpp/node.hpp>
 #include <rclcpp/publisher.hpp>
 #include <rclcpp/time.hpp>
@@ -39,6 +40,8 @@ public:
     _parent(parent),
     _servo(servo)
   {
+    _t_last_pos = _parent->get_clock()->now();
+    _t_last_spd = _parent->get_clock()->now();
     _topic = std::string("servo_lx16a/" + servo.get_param().name + "/pos");
     std::cout << "_topic: " << _topic << std::endl;
     // _sub_pos = nh.subscribe( _topic, 1, &ServoSub::subPos_callback, this);
@@ -62,6 +65,7 @@ public:
 
   void subSpeed_callback(const std_msgs::msg::Float64::SharedPtr msg)
   {
+    // RCLCPP_INFO(_parent->get_logger(), "got speed_cmd: %s", _topic.c_str());
     auto now = _parent->get_clock()->now();
     if((now - _t_last_spd).seconds() < 0.04)
     {
